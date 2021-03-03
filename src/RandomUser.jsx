@@ -17,7 +17,6 @@ const RandomUser = () => {
       .then((response) => response.json())
       .then((data) => setUsers(data.results));
   }, []);
-  console.log({ users });
   return (
     <Box
       bg="tomato"
@@ -29,7 +28,6 @@ const RandomUser = () => {
       <Flex align={"center"} justify={"center"}>
         <Text fontSize="lg" color="yellow" as="b">
           {process.env.REACT_APP_APP_NAME}
-          Agent Profile Downloading
         </Text>
         &nbsp;
         <Spinner
