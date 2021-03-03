@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { List, ListItem, Flex, Avatar, Box } from "@chakra-ui/react";
+import { List, ListItem, Flex, Avatar, Box, Text } from "@chakra-ui/react";
 
 const RandomUser = () => {
   const [users, setUsers] = useState([]);
@@ -11,6 +11,7 @@ const RandomUser = () => {
   console.log({ users });
   return (
     <Box p={20}>
+        <Text>Env App Name: {process.env.REACT_APP_APP_NAME}</Text>
       <List spacing={3}>
         {users.map((user) => (
           <ListItem>
