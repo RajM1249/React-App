@@ -19,8 +19,19 @@ const RandomUser = () => {
   }, []);
   console.log({ users });
   return (
-    <Box bg="tomato" w="100%" h="100%" p={20}>
-      <Text fontSize="6xl" color="yellow">
+    <Box
+      bg="tomato"
+      w="100%"
+      h="100vh"
+      p={(300, 30)}
+      style={{ margin: "auto" }}
+    >
+      <Flex align={"center"} justify={"center"}>
+        <Text fontSize="lg" color="yellow" as="b">
+          {process.env.REACT_APP_APP_NAME}
+          Agent Profile Downloading
+        </Text>
+        &nbsp;
         <Spinner
           thickness="4px"
           speed="0.65s"
@@ -28,15 +39,47 @@ const RandomUser = () => {
           color="blue.500"
           size="md"
         />
-        {process.env.REACT_APP_APP_NAME}
-      </Text>
-      <Center bg="black" h="100PX" color="white">
-        <List spacing={3}>
+      </Flex>
+      <Center bg="black" h="300px" color="white" m={30}>
+        <List spacing={5} width={"100%"}>
           {users.map((user) => (
             <ListItem>
-              <Flex>
-                <Avatar size="sm" src={user.picture.thumbnail} />
-                {`${user.name.title} ${user.name.first} ${user.name.last}`}
+              <Flex align={"center"} justify={"center"} direction={"column"}>
+                <h1
+                  style={{
+                    color: "white",
+                    textAlign: "center",
+                    fontWeight: "bold",
+                    fontSize: "20px",
+                  }}
+                >
+                  Agent Information:
+                </h1>{" "}
+                <br />
+                <Avatar size="lg" src={user.picture.thumbnail} /> &nbsp; &nbsp;
+                <List spacing={3} align={"center"}>
+                  <ListItem>
+                    <Text fontSize="x1" color="white" as="i">
+                      Name:{" "}
+                      {`${user.name.title} ${user.name.first} ${user.name.last}`}
+                    </Text>
+                  </ListItem>
+                  <ListItem>
+                    <Text fontSize="x1" color="white" as="i">
+                      Gender: {`${user.gender}`}
+                    </Text>
+                  </ListItem>
+                  <ListItem>
+                    <Text fontSize="x1" color="white" as="i">
+                      Phone: {`${user.phone}`}
+                    </Text>
+                  </ListItem>
+                  <ListItem>
+                    <Text fontSize="x1" color="white" as="i">
+                      Email: {`${user.email}`}
+                    </Text>
+                  </ListItem>
+                </List>
               </Flex>
             </ListItem>
           ))}
