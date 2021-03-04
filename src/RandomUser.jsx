@@ -130,18 +130,21 @@ const RandomUser = () => {
       style={{ margin: "auto" }}
     >
       <Flex align={"center"} justify={"center"}>
-        <Text fontSize="lg" color="yellow" as="b">
-          {process.env.REACT_APP_APP_NAME}
-        </Text>
-        &nbsp;
         {loading && (
-          <Spinner
-            thickness="4px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="blue.500"
-            size="md"
-          />
+          <>
+            <Text fontSize="lg" color="yellow" as="b">
+              {process.env.REACT_APP_APP_NAME}
+            </Text>
+            &nbsp;
+            &nbsp;
+            <Spinner
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="blue.500"
+              size="md"
+            />
+          </>
         )}
       </Flex>
       <TableView users={users} />
